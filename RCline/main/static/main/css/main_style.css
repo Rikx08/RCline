@@ -1,0 +1,57 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+#navbar {
+    display: flex;
+    background-color: #4c6a92;
+    padding: 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.nav-button {
+    padding: 10px 20px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-transform: capitalize;
+}
+
+.nav-button.steam {
+    background-color: #1b3a94;
+}
+
+.nav-button.youtube {
+    background-color: #e32636;
+}
+
+.nav-button.chatick {
+    background-color: #ffc0cb;
+    color: black;
+}
+
+#content {
+    width: 100%;
+    height: calc(100vh - 60px);
+    background-color: #c8bff2;
+    overflow-y: auto;
+    border: none;
+}
+
+#extra-button {
+    background-color: #ffcc00;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

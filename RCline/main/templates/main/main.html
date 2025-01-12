@@ -1,0 +1,23 @@
+{% load static %}
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'main/css/main_style.css' %}" >
+
+    <title>Главная страница</title>
+</head>
+<body>
+    <div id="navbar">
+        <div id="buttons">
+            <button class="nav-button steam" onclick="loadContent('/content/steam')">Steam</button>
+            <button class="nav-button youtube" onclick="loadContent('/content/youtube')">YouTube</button>
+            <button class="nav-button chatick" onclick="loadContent('/content/chatick')">Chatick</button>
+        </div>
+        <button id="extra-button"></button>
+    </div>
+    <div id="content">
+        <p style="text-align: center; padding: 20px;">Choose a section by clicking the buttons above.</p>
+    </div>
+</body>
+</html>

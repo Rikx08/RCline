@@ -1,1 +1,2 @@
-print("pasiba")
+import django
+

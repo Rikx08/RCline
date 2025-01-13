@@ -44,7 +44,7 @@ body {
     height: calc(100vh - 60px);
     background-color: #c8bff2;
     overflow-y: auto;
-    border: none;
+    border: 1px;
 }
 
 #extra-button {

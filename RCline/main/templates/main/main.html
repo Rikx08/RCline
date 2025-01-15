@@ -8,26 +8,9 @@
     <title>Главная страница</title>
 </head>
 <body>
-    <script>
-        function loadContent(endpoint) {
-            fetch(endpoint)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    return response.text();
-                })
-                .then(html => {
-                    document.getElementById('content').innerHTML = html;
-                })
-                .catch(error => {
-                    document.getElementById('content').innerHTML = '<p style="color: red; text-align: center; padding: 20px;">Error loading content: ' + error.message + '</p>';
-                });
-        }
-    </script>
     <div id="navbar">
         <div id="buttons">
-            <button class="nav-button steam" onclick="loadContent('steam.html')">Steam</button>
+            <button class="nav-button steam" onclick="window.location.href='{% url 'steam' %}'">Steam</button>
             <button class="nav-button youtube" onclick="loadContent('youtube')">YouTube</button>
             <button class="nav-button chatick" onclick="loadContent('chatick')">Chatick</button>
         </div>

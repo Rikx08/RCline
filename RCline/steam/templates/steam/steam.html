@@ -1,0 +1,43 @@
+{% load static %}
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'steam/css/steam_style.css' %}" >
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Steam</title>
+</head>
+<body>
+     <div class="container">
+            <div class="game-gallery">
+                <div class="game-card fade-in">Game 1</div>
+                <div class="game-card fade-in">Game 2</div>
+                <div class="game-card fade-in">Game 3</div>
+                <div class="game-card fade-in">Game 4</div>
+                <div class="game-card fade-in">Game 5</div>
+                <div class="game-card fade-in">Game 6</div>
+            </div>
+            <div class="filter-panel">
+                <h3>Filters</h3>
+                <label><input type="checkbox"> Игры</label>
+                <label><input type="checkbox"> Программы</label>
+                <label><input type="checkbox"> Доп контент</label>
+                <label><input type="checkbox"> Демо</label>
+                <label><input type="checkbox"> Саундтреки</label>
+                <label><input type="checkbox"> Тестирования</label>
+                <label><input type="checkbox"> Видео</label>
+                <label><input type="checkbox"> Модификации</label>
+                <label><input type="checkbox"> Устройства</label>
+                <label><input type="checkbox"> Наборы</label>
+                <hr>
+                <label><input type="checkbox"> Для одного игрока</label>
+                <label><input type="checkbox"> Инди</label>
+                <label><input type="checkbox"> Казуальная игра</label>
+                <label><input type="checkbox"> Приключение</label>
+                <label><input type="checkbox"> Экшен</label>
+            </div>
+        </div>
+
+        <div class="footer">Game Library &copy; 2025</div>
+</body>
+</html>

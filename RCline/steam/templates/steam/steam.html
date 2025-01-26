@@ -9,13 +9,16 @@
 </head>
 <body>
      <div class="container">
-            <div class="game-gallery">
-                <div class="game-card fade-in">Game 1</div>
-                <div class="game-card fade-in">Game 2</div>
-                <div class="game-card fade-in">Game 3</div>
-                <div class="game-card fade-in">Game 4</div>
-                <div class="game-card fade-in">Game 5</div>
-                <div class="game-card fade-in">Game 6</div>
+    <div id="games-container">
+        {% for game in games %}
+            <div class="game-card">
+                <h3>{{ game.title }}</h3>
+                <p>Цена: <span class="price">{{ game.price }}</span></p>
+                <p>Скидка: <span class="percent">{{ game.percent }}</span></p>
+                <p>Полная стоимость: {{ game.full_price }}</p>
+            </div>
+        {% endfor %}
+        </div>
             </div>
             <div class="filter-panel">
                 <h3>Filters</h3>

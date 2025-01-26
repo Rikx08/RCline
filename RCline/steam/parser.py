@@ -16,7 +16,7 @@ def fetch_games(max_pages):
             game_prices = soup.find_all("div", attrs={"class": "discount_final_price"})
             games_full_prices = soup.find_all("div", attrs={"class": "discount_original_price"})
             games_percents = soup.find_all("div", attrs={"class": "discount_pct"})
-
+            games_url = soup.find_all("a",attrs={"class": "search_result_row"})
             if not games:
                 print(f"На странице {page} игр больше нет.")
                 break
@@ -26,12 +26,14 @@ def fetch_games(max_pages):
                     "title": games[i].text if i < len(games) else "N/A",
                     "price": game_prices[i].text if i < len(game_prices) else "N/A",
                     "full_price": games_full_prices[i].text if i < len(games_full_prices) else "N/A",
-                    "percent": games_percents[i].text if i < len(games_percents) else "N/A"
+                    "percent": games_percents[i].text if i < len(games_percents) else "N/A",
+                    "url": games_url[i].get('href')  if i < len(games_url) else "N/A"
                 })
 
             print(f"Страница {page}: собрано {len(games)} игр.")
         else:
             print(f"Ошибка запроса на странице {page}: {r.status_code}")
             break
-
+    print(all_games)
     return all_games
+

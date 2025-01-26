@@ -8,39 +8,28 @@
     <title>Steam</title>
 </head>
 <body>
-     <div class="container">
-    <div id="games-container">
+<div id="navbar">
+        <div id="buttons">
+            <button class="nav-button steam" onclick="window.location.href='{% url 'steam' %}'">Steam</button>
+            <button class="nav-button youtube" onclick="loadContent('youtube')">YouTube</button>
+            <button class="nav-button chatick" onclick="loadContent('chatick')">Chatick</button>
+        </div>
+        <button id="extra-button"></button>
+    </div>
+    <div id="content">
+
         {% for game in games %}
-            <div class="game-card">
+            <div class="game-card" >
+                 <a href="{{ game.url }}" target="_blank" class="game-url">
+                    <img src="static/steam/img/cafel.jpg" alt="Маньяк" class="game-image">
+                </a>
                 <h3>{{ game.title }}</h3>
                 <p>Цена: <span class="price">{{ game.price }}</span></p>
                 <p>Скидка: <span class="percent">{{ game.percent }}</span></p>
                 <p>Полная стоимость: {{ game.full_price }}</p>
             </div>
         {% endfor %}
-        </div>
-            </div>
-            <div class="filter-panel">
-                <h3>Filters</h3>
-                <label><input type="checkbox"> Игры</label>
-                <label><input type="checkbox"> Программы</label>
-                <label><input type="checkbox"> Доп контент</label>
-                <label><input type="checkbox"> Демо</label>
-                <label><input type="checkbox"> Саундтреки</label>
-                <label><input type="checkbox"> Тестирования</label>
-                <label><input type="checkbox"> Видео</label>
-                <label><input type="checkbox"> Модификации</label>
-                <label><input type="checkbox"> Устройства</label>
-                <label><input type="checkbox"> Наборы</label>
-                <hr>
-                <label><input type="checkbox"> Для одного игрока</label>
-                <label><input type="checkbox"> Инди</label>
-                <label><input type="checkbox"> Казуальная игра</label>
-                <label><input type="checkbox"> Приключение</label>
-                <label><input type="checkbox"> Экшен</label>
-            </div>
-        </div>
 
-        <div class="footer">Game Library &copy; 2025</div>
+    </div>
 </body>
 </html>

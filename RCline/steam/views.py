@@ -8,6 +8,6 @@ from .parser import fetch_games
 
 
 def steam_sales(request):
-    max_pages_to_fetch = 10  # Количество страниц для парсинга
+    max_pages_to_fetch = 1  # Количество страниц для парсинга
     games = fetch_games(max_pages_to_fetch)  # Получаем список игр
     return render(request, "steam/steam.html", {'games': games})

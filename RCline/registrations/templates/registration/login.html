@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'main/css/main_style.css' %}" >
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        .brand {
+            color: #0CCA9A;
+        }
+
+        .sign-container {
+            max-width: 470px;
+        }
+
+        .icon-height {
+            height: 24px;
+            width: 24px;
+        }
+
+        .right-box {
+            background: linear-gradient(#0CCA9A, #0DCA78);
+        }
+
+        .inputbox {
+            border: 1px solid #cfcece;
+            outline: none;
+        }
+
+        .inputbox:focus {
+            border: 2px solid #0DCA78;
+        }
+
+        .input-label {
+            top: -12px;
+            left: 3%;
+        }
+
+        .sign-up {
+            background: #0DCA78;
+            color: #fff;
+        }
+
+        .sign-up:hover {
+            background: #fff;
+            color: #0DCA78;
+            border: 1px solid #0DCA78;
+        }
+
+        .signin-border {
+            width: 60px;
+            border: 2px solid #0DCA78;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navbar">
+        <div id="buttons">
+            <button class="nav-button steam" onclick="loadContent('/content/steam')">Steam</button>
+            <button class="nav-button youtube" onclick="loadContent('/content/youtube')">YouTube</button>
+            <button class="nav-button chatick" onclick="loadContent('/content/chatick')">Chatick</button>
+        </div>
+        <!-- location.href - загружает страницу как ссылка в html -->
+        <!-- получает полный путь проекта, до RCline, где лежит main,-->
+        <!-- указывается путь до нужной страницы через файл urls по параметру name -->
+        <button class="nav-button" id="reg_button" onclick="location.href='{% url 'profile' %}'">
+            <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" fill="#4c6a92" class="bi bi-person-circle" viewBox="0 0 16 16">
+              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+              <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+            </svg>
+        </button>
+    </div>
+    <section class="container-fluid ">
+        <div class="row vh-100">
+            <div class="col-md-7 col-12">
+                <div class="px-4 sign-container mx-auto">
+                    <form class="text-center mt-5" method="post">
+                        {% csrf_token %}
+                        <h2 class="fw-bold brand fs-1 my-4">Sign in to Account</h2>
+                        <div class="mb-2 mx-auto signin-border"></div>
+                        <div class="d-flex justify-content-center align-items-center mt-3">
+                            <div class="border rounded-circle p-2 m-2">
+                                <a href="#">
+                                    <i class="bi bi-google"></i>
+                                </a>
+                            </div>
+                            <div class="border rounded-circle p-2 m-2">
+                                <a href="#">
+                                    <i class="bi bi-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="pt-4">or use your email account</div>
+                        <div class="position-relative my-4">
+
+                            <input class="form-control inputbox shadow-none p-2" type="text" name="username" id="username"
+                                placeholder="UserName">
+                            <div class="input-label position-absolute  px-2 bg-white z-1">
+                                <label for="username" class="control-label">UserName</label>
+                            </div>
+                        </div>
+                        <div class="position-relative my-5">
+                            <input class="form-control inputbox shadow-none p-2" type="password" name="password"
+                                id="password" placeholder="password">
+                            <div class="input-label position-absolute px-2 bg-white z-1">
+                                <label for="username" class="control-label">Password</label>
+                            </div>
+                        </div>
+                        <div>
+                            {{ form.errors }}
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center  mx-auto">
+                            <div>
+                                <input type="checkbox" name="check" id="check">
+                                <label for="check">Remember me</label>
+                            </div>
+                            <a href="#" class="text-reset text-decoration-none fw-bold">Forgot Password?</a>
+                        </div>
+                        <button class="btn my-5 fw-bold btn-lg sign-up rounded-5 px-5 fs-6
+                        ">Sign Up</button>
+                        <div class="p-3 mt-3">
+                            <a class="text-decoration-none text-reset" href="#">Privacy Policy</a>
+                            . <a class="text-decoration-none text-reset" href="#">Terms & Condtions</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-5 col-12 right-box d-flex">
+                <div class="text-white text-center m-auto m-5 p-5">
+                    <h2 class="fw-bolder fs-1 my-4">Hello, Friend!</h2>
+                    <div class="signin-border border border-2 border-white mx-auto"></div>
+                    <p class="fs-5 my-4">Fill up personal information and start journey with us.</p>
+                    <button class="btn fw-bold btn-lg border-white rounded-5 px-5 fs-6 text-white
+                    ">Sign Up</button>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- bootstrap js link -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

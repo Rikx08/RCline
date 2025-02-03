@@ -17,7 +17,7 @@ body {
 }
 
 .nav-button {
-    padding: 10px 20px;
+
     color: white;
     border: none;
     border-radius: 5px;
@@ -27,14 +27,17 @@ body {
 }
 
 .nav-button.steam {
+    padding: 10px 20px;
     background-color: #1b3a94;
 }
 
 .nav-button.youtube {
+    padding: 10px 20px;
     background-color: #e32636;
 }
 
 .nav-button.chatick {
+    padding: 10px 20px;cd
     background-color: #ffc0cb;
     color: black;
 }

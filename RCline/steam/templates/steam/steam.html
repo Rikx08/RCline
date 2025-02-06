@@ -3,12 +3,12 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{% static 'steam/css/steam_style.css' %}" >
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'steam/css/steam_style.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Steam</title>
 </head>
 <body>
-<div id="navbar">
+    <div id="navbar">
         <div id="buttons">
             <button class="nav-button steam" onclick="window.location.href='{% url 'steam' %}'">Steam</button>
             <button class="nav-button youtube" onclick="loadContent('youtube')">YouTube</button>
@@ -16,20 +16,39 @@
         </div>
         <button id="extra-button"></button>
     </div>
-    <div id="content">
 
-        {% for game in games %}
-            <div class="game-card" >
-                 <a href="{{ game.url }}" target="_blank" class="game-url">
-                    <img src="static/steam/img/cafel.jpg" alt="Маньяк" class="game-image">
-                </a>
-                <h3>{{ game.title }}</h3>
-                <p>Цена: <span class="price">{{ game.price }}</span></p>
-                <p>Скидка: <span class="percent">{{ game.percent }}</span></p>
-                <p>Полная стоимость: {{ game.full_price }}</p>
-            </div>
-        {% endfor %}
+    <div id="content"></div>
 
-    </div>
+    <script>
+        let socket = new WebSocket("ws://" + window.location.host + "/ws/steam/");  // Теперь работает и локально, и на сервере
+
+socket.onopen = function() {
+    console.log("WebSocket соединение установлено");
+};
+
+            socket.onerror = function(error) {
+                console.log("WebSocket ошибка:", error);
+            };
+
+            socket.onmessage = function(event) {
+                let data = JSON.parse(event.data);
+                let content = document.getElementById("content");
+
+                data.games.forEach(game => {
+                    let gameCard = `
+                        <div class="game-card">
+                            <div class="game-image"><img src="${game.img}" alt="Game Image"></div>
+                            <div class="game-info"><h3>${game.title}</h3></div>
+                            <div class="disc"><p>Скидка: <span class="discount">${game.percent}</span></p></div>
+                            <div class="game-pricing">
+                                <p>Цена: <span class="price-new">${game.price}</span></p>
+                                <p>Полная стоимость: <span class="price-old">${game.full_price}</span></p>
+                            </div>
+                        </div>
+                    `;
+                    content.innerHTML += gameCard;
+                });
+            };
+    </script>
 </body>
 </html>

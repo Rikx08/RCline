@@ -1,0 +1,158 @@
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #1b2838;
+    color: #c7d5e0;
+}
+
+#navbar {
+    display: flex;
+    background-color: #4c6a92;
+    padding: 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.nav-button {
+    padding: 10px 20px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-transform: capitalize;
+}
+
+.nav-button.steam {
+    background-color: #1e3063;
+}
+
+.nav-button.youtube {
+    background-color: #e32636;
+}
+
+.nav-button.chatick {
+    background-color: #ffc0cb;
+    color: black;
+}
+
+#content {
+    width: 95%;
+    height: calc(92vh - 100px);
+    background-color: #1b2838;
+    overflow-y: auto;
+    border tpo: 15px;
+    margin: 50px
+}
+
+#extra-button {
+    background-color: #ffcc00;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.game-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 800px;
+    margin: 20px auto;
+
+}
+
+.game-card {
+    display: flex;
+    align-items: center;
+    background-color: #182951;
+    padding: 1px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.game-image {
+    width: 120px;
+    height: 50px;
+    border-radius: 5px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.game-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.game-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+
+.game-pricing {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.discount {
+    font-size: 16px;
+    font-weight: bold;
+    color: #a5d06c;
+}
+
+.price-old {
+    font-size: 14px;
+    text-decoration: line-through;
+    color: #8b919a;
+    margin-right: 5px
+}
+
+.price-new {
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+}
+.game-container{
+        margin top: 20px
+}
+
+/*стилистика скрола*/
+::-webkit-scrollbar {
+    width: 10px; /* Ширина скролла */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #3b82f6; /* Цвет полосы прокрутки */
+    border-radius: 10px; /* Скругление */
+    border: 2px solid #1e3a8a; /* Промежуток между полосой и границей */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #2563eb; /* Цвет полосы при наведении */
+}
+
+::-webkit-scrollbar-track {
+    background-color: #1e293b; /* Цвет фона дорожки */
+    border-radius: 10px;
+}
+
+/* Для Firefox */
+* {
+    scrollbar-width: thin; /* Толщина скролла */
+    scrollbar-color: #3b82f6 #1e293b; /* Цвет полосы и дорожки */
+}

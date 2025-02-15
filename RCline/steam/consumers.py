@@ -6,14 +6,14 @@ from channels.generic.websocket import AsyncWebsocketConsumer
 
 class GameConsumer(AsyncWebsocketConsumer):
     async def connect(self):
-        await self.accept()
-        self.page = 1
-        self.keep_alive = True
+        await self.accept() # Принимаем WebSocket-соединение
+        self.page = 1   # с какой страницы начать
+        self.keep_alive = True # Флаг для управления соединением
         print("WebSocket подключен")
 
     async def receive(self, text_data):
         """Обрабатываем входящие запросы"""
-        data = json.loads(text_data)
+        data = json.loads(text_data) # Декодируем JSON-данные из запроса
         if data.get("action") == "load_games":
             page = data.get("page", 1)
             await self.fetch_games(page)
@@ -46,10 +46,10 @@ class GameConsumer(AsyncWebsocketConsumer):
                         "img": games_img.get('src') if games_img else "N/A",
                     })
 
-                await self.send(text_data=json.dumps({"games": page_games, "page": page}))
+                await self.send(text_data=json.dumps({"games": page_games, "page": page}))  # Отправляем JSON на клиент
 
             except httpx.RequestError as e:
-                await self.send(text_data=json.dumps({"error": str(e)}))
+                await self.send(text_data=json.dumps({"error": str(e)}))  # Отправляем ошибку
 
     async def disconnect(self, close_code):
         """Отключение WebSocket-соединения"""

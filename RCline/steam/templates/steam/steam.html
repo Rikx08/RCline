@@ -59,6 +59,9 @@
                 data.games.forEach(game => {
                     let gameCard = document.createElement("div");
                     gameCard.className = "game-card";
+                    gameCard.onclick = () => window.open(game.url, "_blank"); // Открытие в новой вкладке
+                    gameCard.style.cursor = "pointer"; // Делаем курсор как у ссылки
+
                     gameCard.innerHTML = `
                         <div class="game-image"><img src="${game.img}" alt="Game Image"></div>
                         <div class="game-info"><h3>${game.title}</h3></div>
@@ -68,8 +71,10 @@
                             <p>Полная стоимость: <span class="price-old">${game.full_price}</span></p>
                         </div>
                     `;
-                    content.insertBefore(gameCard, scrollTrigger);  // Добавляем перед `scrollTrigger`
+
+                    content.appendChild(gameCard);
                 });
+
 
                 loading = false;
             };

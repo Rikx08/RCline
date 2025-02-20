@@ -26,7 +26,7 @@
             let loading = false;
             let content = document.getElementById("content");
 
-            // 🔹 Указываем место, где будем отслеживать скролл
+            // 🔹 Создаём элемент, за которым будем следить
             let scrollTrigger = document.createElement("div");
             scrollTrigger.style.height = "20px";
             scrollTrigger.style.margin = "10px auto";
@@ -59,8 +59,8 @@
                 data.games.forEach(game => {
                     let gameCard = document.createElement("div");
                     gameCard.className = "game-card";
-                    gameCard.onclick = () => window.open(game.url, "_blank"); // Открытие в новой вкладке
-                    gameCard.style.cursor = "pointer"; // Делаем курсор как у ссылки
+                    gameCard.onclick = () => window.open(game.url, "_blank");
+                    gameCard.style.cursor = "pointer";
 
                     gameCard.innerHTML = `
                         <div class="game-image"><img src="${game.img}" alt="Game Image"></div>
@@ -75,6 +75,8 @@
                     content.appendChild(gameCard);
                 });
 
+                // 🔹 Перемещаем `scrollTrigger` в конец контента
+                content.appendChild(scrollTrigger);
 
                 loading = false;
             };
@@ -88,7 +90,7 @@
                 page++;
             }
 
-            // 🔹 Используем IntersectionObserver
+            // 🔹 IntersectionObserver
             let observer = new IntersectionObserver((entries) => {
                 if (entries[0].isIntersecting) {
                     loadMoreGames();

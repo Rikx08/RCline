@@ -10,6 +10,7 @@
 <body>
     <div id="navbar">
         <div id="buttons">
+            <button class="nav-button home" onclick="window.location.href='{% url 'home' %}'">Home</button>
             <button class="nav-button steam" onclick="window.location.href='{% url 'steam' %}'">Steam</button>
             <button class="nav-button youtube" onclick="loadContent('youtube')">YouTube</button>
             <button class="nav-button chatick" onclick="loadContent('chatick')">Chatick</button>
@@ -65,10 +66,10 @@
                     gameCard.innerHTML = `
                         <div class="game-image"><img src="${game.img}" alt="Game Image"></div>
                         <div class="game-info"><h3>${game.title}</h3></div>
-                        <div class="disc"><p>Скидка: <span class="discount">${game.percent}</span></p></div>
+                        <div class="disc"><p><span class="discount">${game.percent}</span></p></div>
                         <div class="game-pricing">
-                            <p>Цена: <span class="price-new">${game.price}</span></p>
-                            <p>Полная стоимость: <span class="price-old">${game.full_price}</span></p>
+                            <p> <span class="price-new">${game.price}</span></p>
+                            <p> <span class="price-old">${game.full_price}</span></p>
                         </div>
                     `;
 

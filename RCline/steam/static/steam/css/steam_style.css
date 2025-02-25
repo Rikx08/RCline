@@ -32,7 +32,9 @@ body {
 .nav-button.steam {
     background-color: #1e3063;
 }
-
+.nav-button.home {
+    background-color: #9f52a5;
+}
 .nav-button.youtube {
     background-color: #e32636;
 }
@@ -91,7 +93,7 @@ body {
 .game-info {
     flex: 1;
     display: flex;
-    flex-direction: column;
+    justify-content: flex-start
     gap: 5px;
 }
 
@@ -105,16 +107,20 @@ body {
 .game-pricing {
     text-align: right;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 5px;
 }
 
 .discount {
     font-size: 16px;
     font-weight: bold;
-    color: #a5d06c;
-}
+    color: #b3cb20;
 
+}
+.disc {
+    display: flex;
+    background-color: #4c6b22;
+}
 .price-old {
     font-size: 14px;
     text-decoration: line-through;
